@@ -1,0 +1,23 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  port: 5434
+  user: pguser
+  password: 4Vsz234ryc
+  pool: 5
+
+development:
+  <<: *default
+  database: music_blog_development
+
+test:
+  <<: *default
+  database: music_blog_test
+
+production:
+  <<: *default
+  database: api_production
+  username: api
+  password: <%= ENV['API_DATABASE_PASSWORD'] %>
+
